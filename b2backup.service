@@ -1,0 +1,18 @@
+[Unit]
+Description=B2 Backup
+Documentation=https://github.com/
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+PIDFile=/var/run/b2backup.pid
+WorkingDirectory=/opt/b2backup/
+ExecStart=/opt/b2backup/b2backup.run
+Restart=on-failure
+SyslogIdentifier=b2backup
+
+[Install]
+WantedBy=multi-user.target
